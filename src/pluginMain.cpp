@@ -73,8 +73,8 @@ MStatus simpleMouseEventCmd::doIt(const MArgList& args)
 
 MStatus initializePlugin(MObject obj)
 {
-    MStatus   status;
-    MFnPlugin plugin( obj, "", "Any", "Any");
+    MStatus status;
+    MFnPlugin plugin(obj, "Maya Qt Example", "Any", "Any");
     status = plugin.registerCommand(
         "simpleMouseEvent",
         simpleMouseEventCmd::creator,
