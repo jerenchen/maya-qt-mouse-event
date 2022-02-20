@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 
-project(mayaQtMouseEvent)
+project(simpleMouseEvent)
 
 find_package(Qt5 REQUIRED COMPONENTS Widgets Core)
 find_package(Maya REQUIRED)
@@ -11,14 +11,14 @@ set(CMAKE_SHARED_LIBRARY_PREFIX "")
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 file(GLOB MQTWE_SOURCES src/*.cpp)
-add_library(mayaQtWidgetEvent SHARED ${MQTWE_SOURCES})
-target_compile_definitions(mayaQtMouseEvent PUBLIC LINUX)
+add_library(simpleMouseEvent SHARED ${MQTWE_SOURCES})
+target_compile_definitions(simpleMouseEvent PUBLIC LINUX)
 target_include_directories(
-    mayaQtMouseEvent PRIVATE
+    simpleMouseEvent PRIVATE
         ${CMAKE_SOURCE_DIR}/src
 )
 target_link_libraries(
-    mayaQtMouseEvent PRIVATE
+    simpleMouseEvent PRIVATE
         Maya::Foundation
         Maya::OpenMaya
         Maya::OpenMayaUI
@@ -26,4 +26,4 @@ target_link_libraries(
         Qt5::Core
 )
 
-install(TARGETS mayaQtMouseEvent DESTINATION plugins)
+install(TARGETS simpleMouseEvent DESTINATION plugins)
